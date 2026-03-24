@@ -2,7 +2,9 @@
 
 **[English](README.md)** | **[日本語](README.ja.md)**
 
-面向 AI Agent 的联邦式 API 网关。在加密保险库中存储凭证，代理 CLI 工具而不暴露密钥，与对等网关联邦共享访问权限。
+> The gateway of internet for all agents. NaKaMiChi - the middle path, the right path.
+
+在加密保险库中存储凭证，代理 CLI 工具而不暴露密钥，与对等网关联邦共享访问权限。
 
 ```
                         托管网关（协调层）

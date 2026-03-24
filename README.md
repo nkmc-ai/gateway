@@ -2,7 +2,9 @@
 
 **[日本語](README.ja.md)** | **[简体中文](README.zh.md)**
 
-A federated API gateway for AI agents. Store credentials in an encrypted vault, proxy CLI tools without exposing keys, and federate with peer gateways to share access.
+> The gateway of internet for all agents. NaKaMiChi - the middle path, the right path.
+
+Store credentials in an encrypted vault, proxy CLI tools without exposing keys, and federate with peer gateways to share access.
 
 ```
                          Hosted Gateway (coordination)

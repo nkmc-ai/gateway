@@ -2,7 +2,9 @@
 
 **[English](README.md)** | **[简体中文](README.zh.md)**
 
-AIエージェント向けのフェデレーション型APIゲートウェイ。暗号化されたVaultに認証情報を保管し、キーを公開せずにCLIツールをプロキシし、ピアゲートウェイとフェデレーションしてアクセスを共有します。
+> The gateway of internet for all agents. NaKaMiChi - the middle path, the right path.
+
+暗号化されたVaultに認証情報を保管し、キーを公開せずにCLIツールをプロキシし、ピアゲートウェイとフェデレーションしてアクセスを共有します。
 
 ```
                         ホストゲートウェイ（調整層）
