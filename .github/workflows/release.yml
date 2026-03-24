@@ -1,0 +1,40 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+      - run: npm install -g npm@latest
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm -r build
+      - name: Resolve workspace references
+        run: |
+          AGENTFS_VERSION=$(node -p "require('./packages/agent-fs/package.json').version")
+          GATEWAY_VERSION=$(node -p "require('./packages/gateway/package.json').version")
+          sed -i "s|\"workspace:\\*\"|\"\^$AGENTFS_VERSION\"|g" packages/gateway/package.json
+          sed -i "s|\"@nkmc/agent-fs\": \"workspace:\\*\"|\"@nkmc/agent-fs\": \"^$AGENTFS_VERSION\"|g" packages/server/package.json
+          sed -i "s|\"@nkmc/gateway\": \"workspace:\\*\"|\"@nkmc/gateway\": \"^$GATEWAY_VERSION\"|g" packages/server/package.json
+      - name: Publish @nkmc/agent-fs
+        run: npm publish --provenance --access public || true
+        working-directory: packages/agent-fs
+      - name: Publish @nkmc/gateway
+        run: npm publish --provenance --access public || true
+        working-directory: packages/gateway
+      - name: Publish @nkmc/server
+        run: npm publish --provenance --access public || true
+        working-directory: packages/server
