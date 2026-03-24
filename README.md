@@ -88,9 +88,6 @@ npm install -g @nkmc/cli @nkmc/server
 # Start gateway
 nkmc gateway start
 
-# Authenticate
-nkmc auth --gateway-url http://localhost:9090
-
 # Store a key (AES-GCM encrypted in local vault)
 nkmc keys set github.com --token ghp_...
 
@@ -102,10 +99,7 @@ nkmc cat /api.github.com/repos/nkmc-ai/gateway
 ### Network mode (federation + tunnel)
 
 ```bash
-# Authenticate with hosted gateway (for tunnel + discovery)
-nkmc auth
-
-# Start with tunnel — your gateway becomes publicly reachable
+# Start with tunnel — auto-authenticates, no extra setup needed
 nkmc gateway start --tunnel
 # => Local:  http://localhost:9090
 # => Public: https://abc123.tunnel.nkmc.ai

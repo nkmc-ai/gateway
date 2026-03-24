@@ -88,9 +88,6 @@ npm install -g @nkmc/cli @nkmc/server
 # ゲートウェイ起動
 nkmc gateway start
 
-# 認証
-nkmc auth --gateway-url http://localhost:9090
-
 # キーを保存（AES-GCM暗号化でローカルVaultに格納）
 nkmc keys set github.com --token ghp_...
 
@@ -102,10 +99,7 @@ nkmc cat /api.github.com/repos/nkmc-ai/gateway
 ### ネットワークモード（フェデレーション + Tunnel）
 
 ```bash
-# ホストゲートウェイで認証（Tunnel・探索用）
-nkmc auth
-
-# Tunnel付きで起動 — GWが公開アクセス可能に
+# Tunnel付きで起動 — 自動認証、追加設定不要
 nkmc gateway start --tunnel
 # => ローカル: http://localhost:9090
 # => 公開:    https://abc123.tunnel.nkmc.ai

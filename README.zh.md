@@ -88,9 +88,6 @@ npm install -g @nkmc/cli @nkmc/server
 # 启动网关
 nkmc gateway start
 
-# 认证
-nkmc auth --gateway-url http://localhost:9090
-
 # 存储密钥（AES-GCM 加密存入本地 vault）
 nkmc keys set github.com --token ghp_...
 
@@ -102,10 +99,7 @@ nkmc cat /api.github.com/repos/nkmc-ai/gateway
 ### 网络模式（联邦 + tunnel）
 
 ```bash
-# 认证到托管网关（用于 tunnel 和发现）
-nkmc auth
-
-# 带 tunnel 启动 — 你的网关可被公网访问
+# 带 tunnel 启动 — 自动认证，无需额外设置
 nkmc gateway start --tunnel
 # => 本地:  http://localhost:9090
 # => 公网: https://abc123.tunnel.nkmc.ai
