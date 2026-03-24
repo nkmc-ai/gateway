@@ -1,6 +1,6 @@
 {
   "name": "@nkmc/server",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "bin": {
     "nkmc-server": "./dist/index.js"
@@ -34,5 +34,9 @@
     "@types/better-sqlite3": "^7.6.13",
     "tsup": "^8.4.0",
     "typescript": "^5.8.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nkmc-ai/gateway"
   }
 }
